@@ -1,0 +1,38 @@
+*{
+  /* color: rgba(116, 116, 230, 0.719); */
+  color: rgba(255, 255, 255, 0.644);
+  font-weight: bold;
+}
+
+body{
+  background-color: black;
+  padding: 0 5% 0 5%;
+  
+}
+h1{
+  text-align: center;
+}
+.img{
+  margin: auto;
+}
+p{
+  text-align: center;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
+.boxContent{
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  margin: auto;
+}
+.box{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+  margin: 5px;
+  /* margin: auto; */
+}

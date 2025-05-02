@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './assets/css/style.css'
+import useFetch from './useFetch'
 
-function App() {
+const App = () => {
+  const { data, loading, error } = useFetch("https://api.escuelajs.co/api/v1/products");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <> 
+      <h1>Photos</h1>
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+      <div className='boxContent'>
+        {data &&
+          data.map((item) => (
+            <div key={item.id} className='box'>
+            <div className='img'>
+              <img src={item.images[0]} alt={item.title} width="100" />
+            </div>
+
+              <p>{item.title}</p>
+            </div>
+          ))}
+      </div>
+    </>
+  )
 }
 
-export default App;
+export default App
